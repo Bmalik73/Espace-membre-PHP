@@ -1,22 +1,52 @@
 <?php
+require_once('./include/db.php');
+require_once('./include/functions.php');
 session_start();
 
-// Vérifie si l'utilisateur est connecté
+// Check if user is logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }
 
+$req = $pdo->query('SELECT * FROM users');
+$users = $req->fetchAll(PDO::FETCH_ASSOC);
+
+require_once './include/header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Tableau de bord</title>
-</head>
-<body>
-    <h1>Bienvenue sur votre tableau de bord, <?php echo htmlspecialchars($_SESSION['user']['username']); ?>!</h1>
-    <p>Ceci est votre tableau de bord sécurisé.</p>
-</body>
-</html>
+<div class="col-md-8 col-md-offset-2">
+    <h1 style="color:#fff;">Dashboard</h1>
+
+    <p>Bienvenue <?= $_SESSION['user']['username'] ?> !</p>
+
+    <h2>Liste des utilisateurs</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom d'utilisateur</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user): ?>
+                <tr>
+                    <td><?= $user['id'] ?></td>
+                    <td><?= $user['username'] ?></td>
+                    <td><?= $user['email'] ?></td>
+                    <td>
+                        <a href="edit.php?id=<?= $user['id'] ?>" class="btn btn-warning">Editer</a>
+                        <a href="delete.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <a href="create.php" class="btn btn-success">Ajouter un utilisateur</a>
+</div>
+
+<?php
+require_once './include/footer.php';

@@ -38,7 +38,7 @@ if (!empty($_POST)) {
     exit();
 }
 
-require_once './include/header.php';
+require_once '../include/header.php';
 ?>
 
 <div class="container">
@@ -56,4 +56,4 @@ require_once './include/header.php';
     </form>
 </div>
 
-<?php require_once './include/footer.php'; ?>
+<?php require_once '../include/footer.php'; ?>

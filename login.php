@@ -31,7 +31,7 @@ if (!empty($_POST)) {
             ];
         
             // Redirection vers une page sécurisée (dashboard.php)
-            header('Location: dashboard.php');
+            header('Location: admin/dashboard.php');
             exit();
         } else {
             // Gestion des cas où le nom d'utilisateur n'existe pas ou le mot de passe est incorrect

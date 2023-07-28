@@ -1,6 +1,6 @@
 <?php
-require_once('./include/db.php');
-require_once('./include/functions.php');
+require_once('../include/db.php');
+require_once('../include/functions.php');
 session_start();
 
 // Check if user is logged in
@@ -33,7 +33,7 @@ if (!empty($_POST)) {
     }
 }
 
-require_once './include/header.php';
+require_once '../include/header.php';
 ?>
 
 <div class="col-md-8 col-md-offset-2">
@@ -71,4 +71,4 @@ require_once './include/header.php';
 </div>
 
 <?php
-require_once './include/footer.php';
+require_once '../include/footer.php';

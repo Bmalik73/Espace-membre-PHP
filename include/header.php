@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body style="background: #000000; color:#fff;">
     <nav class="navbar navbar-inverse">
@@ -24,6 +25,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="register.php">S'enregister <span class="sr-only"></span></a></li>
                 <li><a href="login.php">Se Connecter</a></li>
+                <li><a href="logout.php">Se Deconnecter</a></li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">

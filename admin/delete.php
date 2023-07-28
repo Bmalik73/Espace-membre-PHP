@@ -1,6 +1,6 @@
 <?php
-require_once('./include/db.php');
-require_once('./include/functions.php');
+require_once('../include/db.php');
+require_once('../include/functions.php');
 session_start();
 
 // Check if user is logged in
@@ -18,5 +18,5 @@ if (isset($_GET['id'])) {
     $_SESSION['flash']['danger'] = "Aucun utilisateur spécifié";
 }
 
-header('Location: users.php');
+header('Location: admin/users.php');
 exit();

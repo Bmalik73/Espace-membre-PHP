@@ -1,6 +1,6 @@
 <?php
-require_once('./include/db.php');
-require_once('./include/functions.php');
+require_once('../include/db.php');
+require_once('../include/functions.php');
 session_start();
 
 // Check if user is logged in
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user'])) {
 $req = $pdo->query('SELECT * FROM users');
 $users = $req->fetchAll(PDO::FETCH_ASSOC);
 
-require_once './include/header.php';
+require_once '../include/header.php';
 ?>
 
 <div class="col-md-8 col-md-offset-2">
@@ -37,16 +37,16 @@ require_once './include/header.php';
                     <td><?= $user['username'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td>
-                        <a href="edit.php?id=<?= $user['id'] ?>" class="btn btn-warning">Editer</a>
-                        <a href="delete.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a>
+                        <a href="/admin/edit.php?id=<?= $user['id'] ?>" class="btn btn-warning">Editer</a>
+                        <a href="/admin/delete.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 
-    <a href="create.php" class="btn btn-success">Ajouter un utilisateur</a>
+    <a href="/admin/create.php" class="btn btn-success">Ajouter un utilisateur</a>
 </div>
 
 <?php
-require_once './include/footer.php';
+require_once '../include/footer.php';

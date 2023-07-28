@@ -1,6 +1,6 @@
 <?php
-require_once ('./include/db.php');
-require_once ('./include/functions.php');
+require_once ('../include/db.php');
+require_once ('../include/functions.php');
 session_start();
 
 // Check if user is logged in
@@ -34,8 +34,8 @@ require_once './include/header.php';
                 <td><?= $user->username; ?></td>
                 <td><?= $user->email; ?></td>
                 <td>
-                    <a href="edit.php?id=<?= $user->id; ?>" class="btn btn-info">Modifier</a>
-                    <a href="delete.php?id=<?= $user->id; ?>" class="btn btn-danger">Supprimer</a>
+                    <a href="admin/edit.php?id=<?= $user->id; ?>" class="btn btn-info">Modifier</a>
+                    <a href="admin/delete.php?id=<?= $user->id; ?>" class="btn btn-danger">Supprimer</a>
                 </td>
             </tr>
             <?php endforeach; ?>
